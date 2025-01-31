@@ -14,7 +14,7 @@ describe('DuckDuckGo API Tests', () => {
     const iconCount = duckDuckGoAPI.countIconURLs(responseData);
 
     console.log(`Total Icon URLs válidos encontrados: ${iconCount}`);
-    expect(iconCount).toBeGreaterThan(0); // Aseguramos que haya al menos un Icon URL válido
+    expect(iconCount).toBeGreaterThan(0); // Make sure that at least one Icon URL is valid
   });
 
   test('Validar que los RelatedTopics tengan una estructura válida', () => {

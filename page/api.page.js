@@ -34,18 +34,18 @@ class DuckDuckGoAPI {
 
   isValidURL(url) {
     if (!url) return false;
-    const urlPattern = /^(https?:\/\/|\/)/; // Valida URLs absolutas y relativas
+    const urlPattern = /^(https?:\/\/|\/)/; // Validate URLs absolutes and relatives
     return urlPattern.test(url);
   }
 
   validateRelatedTopicsStructure(data) {
     return data.RelatedTopics.every((topic) => {
-      // Validar que cada `RelatedTopic` tenga un `FirstURL` válido (si existe)
+      // Validate each `RelatedTopic` has a  `FirstURL` valid (if exists)
       if (topic.FirstURL && !this.isValidURL(topic.FirstURL)) {
         return false;
       }
 
-      // Validar que los subtemas (si existen) también cumplan con la estructura
+      // Validate the structure of subtopics (if exists)
       if (topic.Topics) {
         return topic.Topics.every((subTopic) => {
           if (subTopic.FirstURL && !this.isValidURL(subTopic.FirstURL)) {
