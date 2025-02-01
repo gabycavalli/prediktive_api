@@ -10,23 +10,21 @@ describe('DuckDuckGo API Tests', () => {
     responseData = await duckDuckGoAPI.getSearchResults(API_CONFIG.query);
   });
 
-  test('Validar y contar Icon URLs válidos', () => {
+  test('Validate and count valid Icon URL', () => {
     const iconCount = duckDuckGoAPI.countIconURLs(responseData);
 
-    console.log(`Total Icon URLs válidos encontrados: ${iconCount}`);
+    console.log(`Total valid Icon URLs found: ${iconCount}`);
     expect(iconCount).toBeGreaterThan(0); // Make sure that at least one Icon URL is valid
   });
 
-  test('Validar que los RelatedTopics tengan una estructura válida', () => {
+  test('Validate that RelatedTopics have a valid structure', () => {
     const isValidStructure =
       duckDuckGoAPI.validateRelatedTopicsStructure(responseData);
 
-    console.log(
-      `La estructura de RelatedTopics es válida: ${isValidStructure}`
-    );
+    console.log(`The RelatedTopics structure is valid: ${isValidStructure}`);
     expect(isValidStructure).toBe(true);
   });
-  test('Validar que todos los Icon URLs tengan un formato válido', () => {
+  test('Validate that all Icon URLs have valid formatting', () => {
     responseData.RelatedTopics.forEach((topic) => {
       if (topic.Icon?.URL) {
         expect(duckDuckGoAPI.isValidURL(topic.Icon.URL)).toBe(true);
@@ -41,6 +39,6 @@ describe('DuckDuckGo API Tests', () => {
       }
     });
 
-    console.log('Todos los Icon URLs tienen un formato válido.');
+    console.log('All Icon URLs are in a valid format.');
   });
 });
