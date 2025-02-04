@@ -24,15 +24,18 @@ describe('DuckDuckGo API Tests', () => {
     console.log(`The RelatedTopics structure is valid: ${isValidStructure}`);
     expect(isValidStructure).toBe(true);
   });
-  test('Validate that all Icon URLs have valid formatting', () => {
+
+  test('Validate and print all Icon URLs have valid formatting', () => {
     responseData.RelatedTopics.forEach((topic) => {
       if (topic.Icon?.URL) {
+        console.log(`Icon URL: ${topic.Icon.URL}`);
         expect(duckDuckGoAPI.isValidURL(topic.Icon.URL)).toBe(true);
       }
 
       if (topic.Topics) {
         topic.Topics.forEach((subTopic) => {
           if (subTopic.Icon?.URL) {
+            console.log(`SubTopic Icon URL: ${subTopic.Icon.URL}`);
             expect(duckDuckGoAPI.isValidURL(subTopic.Icon.URL)).toBe(true);
           }
         });
