@@ -113,10 +113,6 @@ If you wish to contribute to the project, you can make a **fork**, create a **br
 3. Add new tests if you add new features.
 4. Use good coding practices and comments.
 
-## License
-
-This project is licensed under the **MIT** license. See the `LICENSE` file for more details.
-
 ---
 
 Thanks for using this repository! If you have any questions or suggestions, feel free to open a **issue**.
